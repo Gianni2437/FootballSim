@@ -1,9 +1,9 @@
 import Actions
 import random
 
+#Based on team ratings decide the outcome of individual play in 3 categories: 
+#positive, negative or meh (from the point of view of the offense)
 def playOutcome(offense, defense):
-    #offense = team()
-    #defense = team()
     if offense.offensiveRating > defense.defensiveRating:
         totalCoinFlips = offense.offensiveRating - defense.defensiveRating
         outcome = coinToss(totalCoinFlips)
@@ -32,7 +32,8 @@ def playOutcome(offense, defense):
         else:
             return 'meh'
 
-
+#Computes 50-50 coin toss, returns total number of 'heads' minus 'tails'
+#For individual coint flips, -1 is tails and 1 is heads
 def coinToss(number):
     recordList, heads, tails = [], 0, 0 # multiple assignment
     for i in range(number): # do this 'number' amount of times
